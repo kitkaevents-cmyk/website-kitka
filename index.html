@@ -100,25 +100,12 @@
   .nav-row{
     position:relative;
     display:flex;align-items:center;
-    padding:26px 0;background:transparent;
-    transition:padding .4s ease, background .4s ease;
-  }
-  /* Scrim: keeps nav legible over any photo, regardless of how light the image is.
-     Anchored to the viewport (not overflowing .nav-row with negative offsets) because
-     mobile Safari clips negative-offset overflow inside a position:fixed ancestor into
-     a hard-edged box instead of blending it. */
-  header.on-hero:not(.solid)::before{
-    content:'';position:fixed;left:0;right:0;top:0;height:220px;z-index:-1;
-    background:linear-gradient(180deg, rgba(10,8,7,0.62) 0%, rgba(10,8,7,0.4) 55%, rgba(10,8,7,0) 100%);
-    pointer-events:none;
-  }
-  header.solid .nav-row{
     padding:14px 0;
     background:rgba(251,249,245,0.94);
     -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-    mask-image:linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    transition:padding .4s ease;
   }
+  header.on-hero:not(.solid) .nav-row{padding:20px 0;}
   header.solid .util-bar{padding:6px 0;}
   header.solid{box-shadow:0 1px 0 var(--line);}
 
@@ -137,12 +124,6 @@
     color:var(--accent-deep);border-left:1px solid var(--line);padding-left:10px;
     white-space:nowrap;
   }
-  header.on-hero:not(.solid) .wordmark,
-  header.on-hero:not(.solid) .navlink,
-  header.on-hero:not(.solid) .brandtag{color:var(--white);}
-  header.on-hero:not(.solid) .brandtag{border-color:rgba(255,255,255,0.4);}
-  header.on-hero:not(.solid) .navlink.active{color:var(--white);border-color:var(--white);}
-
   nav.navlinks{display:flex;gap:38px;align-items:center;}
   .navlink{
     font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
@@ -351,22 +332,6 @@
   @media (max-width:900px){
     nav.navlinks{display:none;}
     .hamburger{display:flex;}
-    /* On narrow/portrait screens the transparent hero scrim reads as a flat
-       grey band rather than a smooth fade. Skip it and just show the same
-       solid nav bar used everywhere else. */
-    header.on-hero:not(.solid)::before{display:none;}
-    header.on-hero:not(.solid) .util-bar{padding:6px 0;}
-    header.on-hero:not(.solid) .nav-row{
-      padding:14px 0;
-      background:rgba(251,249,245,0.94);
-      -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-    }
-    header.on-hero:not(.solid) .wordmark,
-    header.on-hero:not(.solid) .navlink,
-    header.on-hero:not(.solid) .brandtag{color:var(--ink-soft);}
-    header.on-hero:not(.solid) .wordmark{color:var(--ink);}
-    header.on-hero:not(.solid) .brandtag{border-color:var(--line);}
-    header.on-hero:not(.solid) .navlink.active{color:var(--ink);border-color:var(--accent);}
     .pillars{grid-template-columns:1fr;}
     .pillar{border-right:none;border-bottom:1px solid var(--line);}
     .teaser-grid{grid-template-columns:1fr 1fr;height:auto;grid-auto-rows:220px;}
