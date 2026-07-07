@@ -184,14 +184,21 @@
     position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
     filter:sepia(6%) saturate(105%) brightness(88%);
   }
+  .hero img[data-branch-img="weddings"]{filter:saturate(102%) brightness(112%);}
+  html[data-branch="corporate"] .hero img[data-branch-img="weddings"]{display:none;}
+  html:not([data-branch="corporate"]) .hero img[data-branch-img="corporate"]{display:none;}
   .hero::before{
     content:'';position:absolute;inset:0;
     background:linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 55%, #23201d 100%);
     opacity:0.92;
   }
+  html:not([data-branch="corporate"]) .hero::before{opacity:0.4;}
   .hero::after{
     content:'';position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(20,16,12,0.22) 0%, rgba(20,16,12,0.08) 45%, rgba(20,16,12,0.46) 100%);
+  }
+  html:not([data-branch="corporate"]) .hero::after{
+    background:linear-gradient(180deg, rgba(20,16,12,0.3) 0%, rgba(20,16,12,0.28) 45%, rgba(20,16,12,0.52) 100%);
   }
   .hero-content{position:relative;z-index:2;color:var(--white);padding:0 24px;}
   .hero-content .eyebrow{color:var(--accent-soft);margin-bottom:18px;}
@@ -199,6 +206,8 @@
     font-size:clamp(42px,7vw,84px);
     line-height:1.02;font-weight:400;
     letter-spacing:0.01em;
+    color:var(--white);
+    text-shadow:0 2px 24px rgba(0,0,0,0.3);
   }
   .hero-content h1 em{font-style:italic;font-weight:300;}
   .hero-content p{
@@ -429,7 +438,8 @@
   <section class="page active" id="page-home" data-page="home">
 
     <div class="hero">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAwIiBoZWlnaHQ9IjEyMDAiIHZpZXdCb3g9IjAgMCAxODAwIDEyMDAiPgo8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRUZFN0RDIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQ0RCRkFFIi8+CjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cpIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjY0IgpmaWxsPSJyZ2JhKDQyLDM2LDMyLDAuMzApIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNiI+UEhPVE88L3RleHQ+Cjwvc3ZnPg==" alt="">
+      <img src="assets/images/hero-weddings.jpg" data-branch-img="weddings" alt="">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAwIiBoZWlnaHQ9IjEyMDAiIHZpZXdCb3g9IjAgMCAxODAwIDEyMDAiPgo8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRUZFN0RDIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQ0RCRkFFIi8+CjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cpIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjY0IgpmaWxsPSJyZ2JhKDQyLDM2LDMyLDAuMzApIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iNiI+UEhPVE88L3RleHQ+Cjwvc3ZnPg==" data-branch-img="corporate" alt="">
       <div class="hero-content">
         <span class="eyebrow"
           data-wed-en="SOFIA · PLOVDIV · BLACK SEA COAST" data-wed-bg="СОФИЯ · ПЛОВДИВ · ЧЕРНОМОРИЕТО"
