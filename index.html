@@ -351,6 +351,22 @@
   @media (max-width:900px){
     nav.navlinks{display:none;}
     .hamburger{display:flex;}
+    /* On narrow/portrait screens the transparent hero scrim reads as a flat
+       grey band rather than a smooth fade. Skip it and just show the same
+       solid nav bar used everywhere else. */
+    header.on-hero:not(.solid)::before{display:none;}
+    header.on-hero:not(.solid) .util-bar{padding:6px 0;}
+    header.on-hero:not(.solid) .nav-row{
+      padding:14px 0;
+      background:rgba(251,249,245,0.94);
+      -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    }
+    header.on-hero:not(.solid) .wordmark,
+    header.on-hero:not(.solid) .navlink,
+    header.on-hero:not(.solid) .brandtag{color:var(--ink-soft);}
+    header.on-hero:not(.solid) .wordmark{color:var(--ink);}
+    header.on-hero:not(.solid) .brandtag{border-color:var(--line);}
+    header.on-hero:not(.solid) .navlink.active{color:var(--ink);border-color:var(--accent);}
     .pillars{grid-template-columns:1fr;}
     .pillar{border-right:none;border-bottom:1px solid var(--line);}
     .teaser-grid{grid-template-columns:1fr 1fr;height:auto;grid-auto-rows:220px;}
