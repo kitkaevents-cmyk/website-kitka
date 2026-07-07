@@ -103,10 +103,13 @@
     padding:26px 0;background:transparent;
     transition:padding .4s ease, background .4s ease;
   }
-  /* Scrim: keeps nav legible over any photo, regardless of how light the image is */
-  header.on-hero:not(.solid) .nav-row::before{
-    content:'';position:absolute;left:0;right:0;top:-40px;bottom:-90px;z-index:-1;
-    background:linear-gradient(180deg, rgba(10,8,7,0.62) 0%, rgba(10,8,7,0.62) 55%, rgba(10,8,7,0) 100%);
+  /* Scrim: keeps nav legible over any photo, regardless of how light the image is.
+     Anchored to the viewport (not overflowing .nav-row with negative offsets) because
+     mobile Safari clips negative-offset overflow inside a position:fixed ancestor into
+     a hard-edged box instead of blending it. */
+  header.on-hero:not(.solid)::before{
+    content:'';position:fixed;left:0;right:0;top:0;height:220px;z-index:-1;
+    background:linear-gradient(180deg, rgba(10,8,7,0.62) 0%, rgba(10,8,7,0.4) 55%, rgba(10,8,7,0) 100%);
     pointer-events:none;
   }
   header.solid .nav-row{
