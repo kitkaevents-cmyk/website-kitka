@@ -295,6 +295,15 @@
   .p-caption .cap{font-family:'Cormorant Garamond',serif;font-size:19px;margin-top:4px;}
   .portfolio-note{margin-top:60px;text-align:center;color:var(--ink-soft);font-size:13px;font-style:italic;}
 
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px;}
+  .blog-card .blog-img{overflow:hidden;}
+  .blog-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .8s ease;filter:sepia(6%) saturate(105%) brightness(97%);}
+  .blog-card:hover img{transform:scale(1.05);}
+  .blog-cat{display:block;margin-top:22px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-deep);}
+  .blog-title{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;margin-top:8px;line-height:1.32;}
+  .blog-excerpt{margin-top:10px;color:var(--ink-soft);font-size:14.5px;line-height:1.75;}
+  .blog-note{margin-top:20px;text-align:center;color:var(--ink-soft);font-size:13px;font-style:italic;}
+
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;}
   .contact-info h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:22px;}
   .contact-info p{color:var(--ink-soft);line-height:1.85;font-size:15px;margin-bottom:34px;}
@@ -342,6 +351,7 @@
     .package{grid-template-columns:1fr;gap:16px;}
     .package .p-price{text-align:left;}
     .portfolio-grid{grid-template-columns:1fr 1fr;}
+    .blog-grid{grid-template-columns:1fr 1fr;}
     .contact-grid{grid-template-columns:1fr;gap:60px;}
     .row2{grid-template-columns:1fr;}
     .page-header{padding:170px 0 60px;}
@@ -349,6 +359,7 @@
   @media (max-width:560px){
     .wrap{padding:0 20px;}
     .portfolio-grid{grid-template-columns:1fr;}
+    .blog-grid{grid-template-columns:1fr;}
     .p-item.tall{grid-row:auto;}
     .p-item.tall img{aspect-ratio:1/1;}
     section{padding:80px 0;}
@@ -391,6 +402,7 @@
         <a href="#" class="navlink" data-page-link="home" data-en="Home" data-bg="Начало">Home</a>
         <a href="#" class="navlink" data-page-link="services" data-en="Services" data-bg="Услуги">Services</a>
         <a href="#" class="navlink" data-page-link="portfolio" data-en="Portfolio" data-bg="Портфолио">Portfolio</a>
+        <a href="#" class="navlink" data-page-link="blog" data-en="Blog" data-bg="Блог">Blog</a>
         <a href="#" class="navlink" data-page-link="contact" data-en="Contact" data-bg="Контакти">Contact</a>
       </nav>
 
@@ -410,6 +422,7 @@
   <a href="#" class="navlink" data-page-link="home" data-en="Home" data-bg="Начало">Home</a>
   <a href="#" class="navlink" data-page-link="services" data-en="Services" data-bg="Услуги">Services</a>
   <a href="#" class="navlink" data-page-link="portfolio" data-en="Portfolio" data-bg="Портфолио">Portfolio</a>
+  <a href="#" class="navlink" data-page-link="blog" data-en="Blog" data-bg="Блог">Blog</a>
   <a href="#" class="navlink" data-page-link="contact" data-en="Contact" data-bg="Контакти">Contact</a>
 </div>
 
@@ -755,6 +768,93 @@
     </div>
   </section>
 
+  <!-- ================= BLOG ================= -->
+  <section class="page" id="page-blog" data-page="blog">
+    <div class="page-header">
+      <span class="eyebrow" data-en="Blog" data-bg="Блог">Blog</span>
+      <h1 data-wed-en="Stories, Guides &amp; Real Weddings" data-wed-bg="Истории, гидове и истински сватби" data-corp-en="Insights, Guides &amp; Case Studies" data-corp-bg="Прозрения, гидове и казуси">Stories, Guides &amp; Real Weddings</h1>
+      <p
+        data-wed-en="Planning advice, vendor spotlights, and real celebrations from across Bulgaria."
+        data-wed-bg="Съвети за планиране, представяне на доставчици и истински тържества от цяла България."
+        data-corp-en="Planning advice, venue spotlights, and real events from across Bulgaria."
+        data-corp-bg="Съвети за планиране, представяне на локации и истински събития от цяла България.">Planning advice, vendor spotlights, and real celebrations from across Bulgaria.</p>
+    </div>
+
+    <div class="wrap" style="padding-top:70px;">
+      <div class="blog-grid">
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGMEU5REUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNEMEM0QjMiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-en="Planning Guide" data-bg="Ръководство за планиране">Planning Guide</span>
+          <h2 class="blog-title" data-wed-en="How to Plan a Destination Wedding in Bulgaria" data-wed-bg="Как да организирате сватба в България" data-corp-en="How to Plan a Corporate Retreat in Bulgaria" data-corp-bg="Как да организирате корпоративен retreat в България">How to Plan a Destination Wedding in Bulgaria</h2>
+          <p class="blog-excerpt"
+            data-wed-en="A step-by-step timeline for couples marrying abroad — from choosing a season to booking vendors your guests will remember."
+            data-wed-bg="Стъпка по стъпка график за двойки, женещи се извън родината си — от избор на сезон до резервация на доставчици, които гостите ви ще запомнят."
+            data-corp-en="A step-by-step timeline for teams heading offsite — from scoping objectives to booking a venue your delegates will remember."
+            data-corp-bg="Стъпка по стъпка график за екипни пътувания — от дефиниране на целите до резервация на локация, която участниците ви ще запомнят.">A step-by-step timeline for couples marrying abroad.</p>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFREU2REEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDN0JCQUIiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-en="Venues" data-bg="Локации">Venues</span>
+          <h2 class="blog-title" data-wed-en="Best Wedding Venues Along the Black Sea Coast" data-wed-bg="Най-добрите локации за сватба по Черноморието" data-corp-en="Best Conference Venues in Sofia &amp; Plovdiv" data-corp-bg="Най-добрите локации за конференции в София и Пловдив">Best Wedding Venues Along the Black Sea Coast</h2>
+          <p class="blog-excerpt"
+            data-wed-en="From clifftop terraces in Sozopol to private beach clubs near Varna — our favorite coastal settings for a seaside ceremony."
+            data-wed-bg="От тераси на скалите в Созопол до частни плажни клубове край Варна — любимите ни локации край морето за морска церемония."
+            data-corp-en="From boutique hotel ballrooms to renovated industrial spaces — our favorite settings for a conference your team won't forget."
+            data-corp-bg="От бутикови бални зали до реновирани индустриални пространства — любимите ни локации за конференция, която екипът ви няма да забрави.">From clifftop terraces to private beach clubs.</p>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFRkU3REMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDREJGQUUiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-wed-en="Real Weddings" data-wed-bg="Истински сватби" data-corp-en="Case Study" data-corp-bg="Казус">Real Weddings</span>
+          <h2 class="blog-title" data-wed-en="A Real Wedding: A Seaside Ceremony in Sozopol" data-wed-bg="Истинска сватба: Морска церемония в Созопол" data-corp-en="Case Study: An Annual Tech Summit in Sofia" data-corp-bg="Казус: Годишен технологичен форум в София">A Real Wedding: A Seaside Ceremony in Sozopol</h2>
+          <p class="blog-excerpt"
+            data-wed-en="Inside an intimate coastal celebration — the vendors, the timeline, and the small details that made it feel entirely theirs."
+            data-wed-bg="Поглед към камерно тържество край морето — доставчиците, графикът и малките детайли, които го направиха неповторимо."
+            data-corp-en="How we ran a two-day conference for 200 delegates — the venue, the logistics, and what we'd do again."
+            data-corp-bg="Как организирахме двудневна конференция за 200 участници — локацията, логистиката и какво бихме повторили отново.">Inside an intimate coastal celebration.</p>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFQUUyRDUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDMkI2QTUiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-wed-en="Culture" data-wed-bg="Култура" data-corp-en="Ideas" data-corp-bg="Идеи">Culture</span>
+          <h2 class="blog-title" data-wed-en="Bulgarian Wedding Traditions Your Guests Will Love" data-wed-bg="Български сватбени традиции, които гостите ви ще харесат" data-corp-en="Team-Building Activities Bulgaria Does Best" data-corp-bg="Активности за екипно сплотяване, които България предлага">Bulgarian Wedding Traditions Your Guests Will Love</h2>
+          <p class="blog-excerpt"
+            data-wed-en="From the horo dance to bread-breaking rituals — traditions worth weaving into a destination celebration."
+            data-wed-bg="От хорото до чупенето на питка — традиции, които си струва да включите в сватбата в чужбина."
+            data-corp-en="Rose Valley workshops, mountain hikes, and old-town scavenger hunts — offsite activities that actually bring teams together."
+            data-corp-bg="Работилници в Розовата долина, планински преходи и куест-игри в стария град — активности, които наистина сближават екипите.">From the horo dance to bread-breaking rituals.</p>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGMEU5REUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNEMEM0QjMiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-en="Planning" data-bg="Планиране">Planning</span>
+          <h2 class="blog-title" data-wed-en="Budgeting for a Destination Wedding" data-wed-bg="Бюджет за сватба в чужбина" data-corp-en="Budgeting for a Corporate Offsite" data-corp-bg="Бюджет за корпоративен offsite">Budgeting for a Destination Wedding</h2>
+          <p class="blog-excerpt"
+            data-wed-en="What actually drives cost in Bulgaria — and where couples typically choose to spend more or save."
+            data-wed-bg="Кое реално оскъпява сватбата в България — и къде двойките обикновено избират да похарчат повече или да спестят."
+            data-corp-en="What actually drives cost in Bulgaria — and where companies typically choose to spend more or save."
+            data-corp-bg="Кое реално оскъпява събитието в България — и къде компаниите обикновено избират да похарчат повече или да спестят.">What actually drives cost in Bulgaria.</p>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFREU2REEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDN0JCQUIiLz4KPC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjUiCmZpbGw9InJnYmEoNDIsMzYsMzIsMC4zMCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI2Ij5QSE9UTzwvdGV4dD4KPC9zdmc+" alt=""></div>
+          <span class="blog-cat" data-en="Planning" data-bg="Планиране">Planning</span>
+          <h2 class="blog-title" data-wed-en="Choosing the Right Season for a Bulgarian Wedding" data-wed-bg="Избор на подходящ сезон за сватба в България" data-corp-en="Choosing the Right Season for Your Event" data-corp-bg="Избор на подходящ сезон за вашето събитие">Choosing the Right Season for a Bulgarian Wedding</h2>
+          <p class="blog-excerpt"
+            data-wed-en="Coastal summers, golden mountain autumns, rose-season Junes — how to pick dates around the experience you want."
+            data-wed-bg="Летата край морето, златната есен в планината, розовите юнски дни — как да изберете дата според изживяването, което искате."
+            data-corp-en="Conference-ready spring and autumn, retreat-friendly summers — how to pick dates around the experience you want."
+            data-corp-bg="Пролет и есен за конференции, лято за retreat-и — как да изберете дата според изживяването, което искате.">Coastal summers, golden mountain autumns.</p>
+        </article>
+
+      </div>
+
+      <p class="blog-note" data-en="Blog placeholder — articles to be added before launch." data-bg="Примерно съдържание — статиите ще бъдат добавени преди пускане в експлоатация.">Blog placeholder.</p>
+    </div>
+  </section>
+
   <!-- ================= CONTACT ================= -->
   <section class="page" id="page-contact" data-page="contact">
     <div class="page-header">
@@ -844,6 +944,7 @@
           <a href="#" data-page-link="home" data-en="Home" data-bg="Начало">Home</a>
           <a href="#" data-page-link="services" data-en="Services" data-bg="Услуги">Services</a>
           <a href="#" data-page-link="portfolio" data-en="Portfolio" data-bg="Портфолио">Portfolio</a>
+          <a href="#" data-page-link="blog" data-en="Blog" data-bg="Блог">Blog</a>
           <a href="#" data-page-link="contact" data-en="Contact" data-bg="Контакти">Contact</a>
         </div>
         <div class="footer-col">
